@@ -26,28 +26,28 @@ btnRollDice.addEventListener('click', function () {
     }
   }
   if (randomNumber !== 1) {
-    player0RoundScore = player0RoundScore + randomNumber;
-    score0El.textContent = player0RoundScore;
+    // if number is different from 1 ==>
+    player0RoundScore = player0RoundScore + randomNumber; // start calculating round score
+    score0El.textContent = player0RoundScore; // display round score
   } else {
-    player0RoundScore = 0;
-    score0El.textContent = player0RoundScore;
-    if (player0CurrentScore >= 100) {
-      console.log('Player 1 wins!');
-    } else {
-      document.querySelector('.player--0').classList.remove('player--active');
-      document.querySelector('.player--1').classList.add('player--active');
-    }
+    player0RoundScore = 0; // if number is == 1 then reset round score and lose all point
+    score0El.textContent = player0RoundScore; // display 0 as new round score
+    document.querySelector('.player--0').classList.remove('player--active'); // make player 0 inactive
+    document.querySelector('.player--1').classList.add('player--active'); // make player 1 active
   }
 });
 
 btnHold.addEventListener('click', function () {
-  player0CurrentScore = player0CurrentScore + player0RoundScore;
-  currentScore0.textContent = player0CurrentScore;
-  player0RoundScore = 0;
-  score0El.textContent = player0RoundScore;
+  // if hold button is pressed then ==>
+  player0CurrentScore = player0CurrentScore + player0RoundScore; // add round score to current score
+  currentScore0.textContent = player0CurrentScore; // display current score
+  player0RoundScore = 0; // reset round score to 0
+  score0El.textContent = player0RoundScore; // display round score
   if (player0CurrentScore >= 100) {
-    console.log('Player 1 wins!');
+    // check if player 0 score is over 100
+    console.log('Player 1 wins!'); // wins if TRUE
   } else {
+    // if false switch to player 1
     document.querySelector('.player--0').classList.remove('player--active');
     document.querySelector('.player--1').classList.add('player--active');
   }
