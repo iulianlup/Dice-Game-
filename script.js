@@ -1,6 +1,6 @@
 'use strict';
 
-// Sekecting element
+// Selecting element
 const score0El = document.querySelector('#score--0');
 const score1El = document.querySelector('#score--1');
 const dice = document.querySelector('.dice');
@@ -27,11 +27,11 @@ btnRollDice.addEventListener('click', function () {
   }
   if (randomNumber !== 1) {
     // if number is different from 1 ==>
-    player0RoundScore = player0RoundScore + randomNumber; // start calculating round score
-    score0El.textContent = player0RoundScore; // display round score
+    player0CurrentScore = player0CurrentScore + randomNumber; // start calculating round score
+    currentScore0.textContent = player0CurrentScore; // display round score
   } else {
-    player0RoundScore = 0; // if number is == 1 then reset round score and lose all point
-    score0El.textContent = player0RoundScore; // display 0 as new round score
+    player0CurrentScore = 0; // if number is == 1 then reset round score and lose all point
+    currentScore0.textContent = player0CurrentScore; // display 0 as new round score
     document.querySelector('.player--0').classList.remove('player--active'); // make player 0 inactive
     document.querySelector('.player--1').classList.add('player--active'); // make player 1 active
   }
@@ -39,11 +39,11 @@ btnRollDice.addEventListener('click', function () {
 
 btnHold.addEventListener('click', function () {
   // if hold button is pressed then ==>
-  player0CurrentScore = player0CurrentScore + player0RoundScore; // add round score to current score
-  currentScore0.textContent = player0CurrentScore; // display current score
-  player0RoundScore = 0; // reset round score to 0
-  score0El.textContent = player0RoundScore; // display round score
-  if (player0CurrentScore >= 100) {
+  player0RoundScore = player0RoundScore + player0CurrentScore; // add round score to current score
+  score0El.textContent = player0RoundScore; // display current score
+  player0CurrentScore = 0; // reset round score to 0
+  currentScore0.textContent = player0CurrentScore; // display round score
+  if (player0RoundScore >= 100) {
     // check if player 0 score is over 100
     console.log('Player 1 wins!'); // wins if TRUE
   } else {
