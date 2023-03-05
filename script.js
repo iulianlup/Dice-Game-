@@ -8,6 +8,7 @@ const btnRollDice = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const currentScore0 = document.querySelector('#current--0');
 const currentScore1 = document.querySelector('#current--1');
+const btnNewGame = document.querySelector('.btn--new');
 
 dice.classList.add('hidden'); // hide dice image for initial page load & start of game
 score0El.textContent = 0; // set score player 1 to 0
@@ -96,4 +97,13 @@ btnHold.addEventListener('click', function () {
       document.querySelector('.player--0').classList.add('player--active');
     }
   }
+});
+
+btnNewGame.addEventListener('click', function () {
+  document.querySelector('.player--1').classList.remove('player--active');
+  document.querySelector('.player--0').classList.add('player--active');
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  currentScore0.textContent = 0;
+  currentScore1.textContent = 0;
 });
