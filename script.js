@@ -80,6 +80,8 @@ btnHold.addEventListener('click', function () {
       console.log('Player 0 wins!'); // wins if TRUE
       document.querySelector('.player--0').classList.remove('player--active');
       document.querySelector('.player--0').classList.add('player--winner');
+      document.querySelector('.btn--roll').disabled = true;
+      document.querySelector('.btn--hold').disabled = true;
     } else {
       // if false switch to player 1
       document.querySelector('.player--0').classList.remove('player--active');
@@ -94,20 +96,30 @@ btnHold.addEventListener('click', function () {
       // check if player 1 score is over 100
       console.log('Player 1 wins!'); // wins if TRUE
       document.querySelector('.player--1').classList.remove('player--active');
-      document.querySelector('.player--1').classList.add('player--winner');
+      document.querySelector('.player--1').classList.add('player--winner'); // add player--winner after removing player--active to indicate Winner
+      document.querySelector('.btn--roll').disabled = true; // disabled roll button
+      document.querySelector('.btn--hold').disabled = true; // disable hold button
     } else {
       // if false switch to player 0
-      document.querySelector('.player--1').classList.remove('player--active');
+      document.querySelector('.player--1').classList.remove('player--active'); //switched players if score was not over >=100
       document.querySelector('.player--0').classList.add('player--active');
     }
   }
 });
 
 btnNewGame.addEventListener('click', function () {
+  // we use this function to reset the game to initial conditions
   document.querySelector('.player--1').classList.remove('player--active');
-  document.querySelector('.player--0').classList.add('player--active');
+  document.querySelector('.player--0').classList.add('player--active'); // player 0 is the default start of the game
   score0El.textContent = 0;
   score1El.textContent = 0;
-  currentScore0.textContent = 0;
+  currentScore0.textContent = 0; // set scores to 0
   currentScore1.textContent = 0;
+  player0RoundScore = 0;
+  player1RoundScore = 0;
+  dice.classList.add('hidden');
+  document.querySelector('.btn--roll').disabled = false; // re-enable buttons
+  document.querySelector('.btn--hold').disabled = false;
+  document.querySelector('.player--0').classList.remove('player--winner');
+  document.querySelector('.player--1').classList.remove('player--winner'); // remove winner color if game was reset from new game button
 });
