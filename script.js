@@ -78,6 +78,8 @@ btnHold.addEventListener('click', function () {
     if (player0RoundScore >= 100) {
       // check if player 0 score is over 100
       console.log('Player 0 wins!'); // wins if TRUE
+      document.querySelector('.player--0').classList.remove('player--active');
+      document.querySelector('.player--0').classList.add('player--winner');
     } else {
       // if false switch to player 1
       document.querySelector('.player--0').classList.remove('player--active');
@@ -91,6 +93,8 @@ btnHold.addEventListener('click', function () {
     if (player1RoundScore >= 100) {
       // check if player 1 score is over 100
       console.log('Player 1 wins!'); // wins if TRUE
+      document.querySelector('.player--1').classList.remove('player--active');
+      document.querySelector('.player--1').classList.add('player--winner');
     } else {
       // if false switch to player 0
       document.querySelector('.player--1').classList.remove('player--active');
