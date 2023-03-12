@@ -23,8 +23,8 @@ const init = function () {
   document.querySelector('.player--1').classList.remove('player--winner'); // remove winner color if game was reset from new game button
   document.querySelector('.player--1').classList.remove('player--active');
   document.querySelector('.player--0').classList.add('player--active'); // player 0 is the default start of the game
-  document.getElementById(`current--${activePlayer}`).textContent =
-    currentScore;
+  currentScore0.textContent = 0;
+  currentScore1.textContent = 0;
 };
 
 init();
